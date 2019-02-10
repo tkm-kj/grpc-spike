@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.exapmle.spike;
+
+message Comment {
+  int64 id = 1;
+  int64 playlistId = 2;
+  string userName = 3;
+  string comment = 4;
+}
+
+message Comments {
+  repeated Comment comment = 1;
+}
+
+message CommentRequest {
+  int64 id = 1;
+}
+
+message CommentsRequest {
+  int64 playlistId = 1;
+}
+
+service CommentService {
+  rpc GetComment(CommentRequest) returns (Comment);
+  rpc GetCommentsByPlaylistId(CommentsRequest) returns (Comments);
+}
