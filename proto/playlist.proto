@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.exapmle.spike;
+
+import "google/protobuf/timestamp.proto";
+import public "comment.proto";
+
+message Playlist {
+  int64 id = 1;
+  int64 order = 2;
+  string name = 3;
+  google.protobuf.Timestamp created_at = 4;
+  Comments comments = 5;
+}
+
+message PlaylistRequest {
+  int64 id = 1;
+}
+
+service PlaylistService {
+  rpc GetPlaylist(PlaylistRequest) returns (Playlist);
+}

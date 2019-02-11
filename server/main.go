@@ -21,6 +21,7 @@ func main() {
 
 	s := grpc.NewServer()
 	pb.RegisterCommentServiceServer(s, new(services.CommentService))
+	pb.RegisterPlaylistServiceServer(s, new(services.PlaylistService))
 	err = s.Serve(lis)
 	if err != nil {
 		log.Fatal(err)
